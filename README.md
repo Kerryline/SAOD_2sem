@@ -1,6 +1,7 @@
 # SAOD_2sem
-Lists
-Quicksort
-Heapsort
-Mergesort
-Digitalsort
+
+### Lists
+### Quicksort
+### Heapsort
+### Mergesort
+### Digitalsort
