@@ -101,7 +101,9 @@ int main() {
     int numSizes = sizeof(sizes) / sizeof(sizes[0]);
     
     std::cout << "Трудоемкость построения пирамиды\n";
-    std::cout << "N\tM+C теор.\tMф+Сф убыв.\tMф+Сф случ.\tMф+Сф возр.\n";
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
+    std::cout << "| N   | M+C теор.      | Mф+Сф убыв. | Mф+Сф случ. | Mф+Сф возр. |\n";
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
     
     // исследование построения пирамиды
     for (int i = 0; i < numSizes; i++) {
@@ -132,17 +134,18 @@ int main() {
         buildHeap(arr3, n);
         M_vozr = M; C_vozr = C;
         
-        std::cout << n << "\t" << theory << "\t\t" 
-                  << M_ubyv + C_ubyv << "\t\t" << M_sluch + C_sluch 
-                  << "\t\t" << M_vozr + C_vozr << std::endl;
+        std::cout << "| " << n << " | " << theory << "        | " << (M_ubyv + C_ubyv) << "         | " << (M_sluch + C_sluch) << "         | " << (M_vozr + C_vozr) << "         |\n";
         
         delete[] arr1;
         delete[] arr2;
         delete[] arr3;
     }
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
     
     std::cout << "\nТрудоемкость пирамидальной сортировки\n";
-    std::cout << "N\tУбыв.\tВозр.\tСлуч.\n";
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
+    std::cout << "| N   | Theor (худший) | Убыв.       | Возр.       | Случ.       |\n";
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
     
     // исследование пирамидальной сортировки
     for (int i = 0; i < numSizes; i++) {
@@ -172,12 +175,13 @@ int main() {
         checkSort(arr3, n, sum3, series3);
         int res3 = M + C;
         
-        std::cout << n << "\t" << res1 << "\t" << res2 << "\t" << res3 << std::endl;
+        std::cout << "| " << n << " | " << (n * n / 2.0) << "          | " << res1 << "        | " << res2 << "         | " << res3 << "         |\n";
         
         delete[] arr1;
         delete[] arr2;
         delete[] arr3;
     }
+    std::cout << "+-----+----------------+-------------+-------------+-------------+\n";
     
     return 0;
 }
