@@ -4,6 +4,8 @@
 #include <ctime>
 #include <utility> 
 
+using namespace std;
+
 int M, C;
 
 void reset_counters() {
@@ -49,7 +51,7 @@ void quickSort(int arr[], int L, int R) {
 }
 
 // Full
-std::pair<int, int> fullQuickSort(int arr[], int n) {
+pair<int, int> fullQuickSort(int arr[], int n) {
     reset_counters();
     quickSort(arr, 0, n - 1);
     return {C, M};
@@ -71,16 +73,16 @@ int main() {
     srand(time(NULL));
     int sizes[] = {100, 200, 300, 400, 500};
 
-    std::cout << "\nТрудоемкость QuickSort (M+C):\n";
-    std::cout << "+-----+----------------+-------+-------+-------+\n";
-    std::cout << "| N   | Theor (худший) | Убыв  | Возр  | Случ  |\n";
-    std::cout << "+-----+----------------+-------+-------+-------+\n";
+    cout << "\nТрудоемкость QuickSort (M+C):\n";
+    cout << "+-----+----------------+-------+-------+-------+\n";
+    cout << "| N   | Theor (худший) | Убыв  | Возр  | Случ  |\n";
+    cout << "+-----+----------------+-------+-------+-------+\n";
     for (int n : sizes) {
         int* arr1 = new int[n]; generateArray(arr1, n, 0); auto res1 = fullQuickSort(arr1, n); int mc1 = res1.first + res1.second; delete[] arr1;
         int* arr2 = new int[n]; generateArray(arr2, n, 2); auto res2 = fullQuickSort(arr2, n); int mc2 = res2.first + res2.second; delete[] arr2;
         int* arr3 = new int[n]; generateArray(arr3, n, 1); auto res3 = fullQuickSort(arr3, n); int mc3 = res3.first + res3.second; delete[] arr3;
-        std::cout << "| " << n << " | " << theor_worst(n) << "           | " << mc1 << "  | " << mc2 << "  | " << mc3 << "  |\n";
+        cout << "| " << n << " | " << theor_worst(n) << "           | " << mc1 << "  | " << mc2 << "  | " << mc3 << "  |\n";
     }
-    std::cout << "+-----+----------------+-------+-------+-------+\n";
+    cout << "+-----+----------------+-------+-------+-------+\n";
     return 0;
 }
